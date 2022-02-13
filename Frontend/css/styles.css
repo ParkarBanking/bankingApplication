@@ -12562,3 +12562,10 @@ fieldset:disabled .btn {
   width: 4rem;
   font-size: 2rem;
 }
+
+.card-center {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

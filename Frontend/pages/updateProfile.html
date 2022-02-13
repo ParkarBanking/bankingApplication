@@ -26,7 +26,7 @@
     <title>Update Profile</title>
   </head>
   <body>
-    <div class="card-body w-75 mx-auto my-5 border border-primary">
+    <div class="card-body w-75 border border-primary card-center">
       <h1 class="text-center m-4">Update Profile</h1>
 
       <div class="row">
@@ -36,6 +36,7 @@
             class="form-control"
             id="customerId"
             placeholder="Custpmer Id"
+            readonly
           />
           <label for="customerId">Customer Id</label>
         </div>
@@ -84,13 +85,15 @@
           <label for="address">Address</label>
         </div>
       </div>
+      <div class="row justify-content-center mx-5">
       <a
         id="updateProfile"
-        class="btn btn-primary btn-lg w-50 mx-auto my-4"
+        class="btn btn-primary btn-lg w-50 "
         onclick="update_profile()"
       >
         Update
       </a>
+    </div>
     </div>
     <script src="../javaScript/index.js"></script>
   </body>

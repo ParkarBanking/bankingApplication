@@ -45,7 +45,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container px-lg-5">
-        <a class="navbar-brand" href="#!">Start Bootstrap</a>
+        <a class="navbar-brand" >Apex</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -62,8 +62,10 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#!">Home</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+            <li class="nav-item">
+              <button class="btn btn-primary" onclick="logout()">LOGOUT</button>
+            </li>
           </ul>
         </div>
       </div>
@@ -73,13 +75,13 @@
       <div class="container px-lg-5">
         <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
           <div class="m-4 m-lg-5">
-            <h1 class="display-5 fw-bold">A warm welcome!</h1>
+            <h1 class="display-5 fw-bold">Welcome <span id="userName"></span></h1>
             <p class="fs-4">
               Bootstrap utility classes are used to create this jumbotron since
               the old component has been removed from the framework. Why create
               custom CSS when you can use utilities?
             </p>
-            <a class="btn btn-primary btn-lg" href="#!">Call to action</a>
+            <!-- <a class="btn btn-primary btn-lg" href="#!">Call to action</a> -->
           </div>
         </div>
       </div>
@@ -95,10 +97,11 @@
                 <div
                   class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
                 >
-                  <i class="bi bi-collection"></i>
+                <i class="bi bi-person-lines-fill"></i>
+                  <!-- <i class="bi bi-collection"></i> -->
                 </div>
                 <h2 class="fs-4 fw-bold">
-                  <a href="#">Fetch Account</a>
+                  <a href="./viewProfile.html">Fetch Account</a>
                 </h2>
                 <p class="mb-0">
                   With Bootstrap 5, we've created a fresh new layout for this
@@ -113,7 +116,8 @@
                 <div
                   class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
                 >
-                  <i class="bi bi-cloud-download"></i>
+                <i class="bi bi-pencil-square"></i>
+                  <!-- <i class="bi bi-cloud-download"></i> -->
                 </div>
                 <h2 class="fs-4 fw-bold">
                   <a href="./updateProfile.html">Update Profile</a>
@@ -131,7 +135,8 @@
                 <div
                   class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
                 >
-                  <i class="bi bi-card-heading"></i>
+                  <!-- <i class="bi bi-card-heading"></i> -->
+                  <i class="bi bi-key-fill"></i>
                 </div>
                 <h2 class="fs-4 fw-bold">
                   <a href="./updatePassword.html">Update Password</a>
@@ -148,7 +153,8 @@
                 <div
                   class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
                 >
-                  <i class="bi bi-bootstrap"></i>
+                  <!-- <i class="bi bi-bootstrap"></i> -->
+                  <i class="bi bi-wallet2"></i>
                 </div>
                 <h2 class="fs-4 fw-bold">
                   <a href="./addBalance.html">Add Amount</a>
@@ -183,10 +189,11 @@
                 <div
                   class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"
                 >
-                  <i class="bi bi-patch-check"></i>
+                  <!-- <i class="bi bi-patch-check"></i> -->
+                  <i class="bi bi-journal-text"></i>
                 </div>
                 <h2 class="fs-4 fw-bold">
-                  <a href="#">Send OTP</a>
+                  <a href="./viewPassbook.html">View Passbook</a>
                 </h2>
                 <p class="mb-0">
                   Start Bootstrap has been the leader in free Bootstrap
@@ -207,6 +214,7 @@
       </div>
     </footer>
     <!-- Core theme JS-->
-    <script src="../javaScript/index.js"></script>
+    <script src="../javaScript/index.js">  
+    </script>
   </body>
 </html>
