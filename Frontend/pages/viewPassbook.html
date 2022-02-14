@@ -27,15 +27,7 @@
           <th scope="col">Transaction Status</th>
         </tr>
       </thead>
-      <!-- <tfoot>
-        <tr>
-          <th>Account Number</th>
-          <th>UserAccount Number</th>
-          <th>Amount</th>
-          <th>Time</th>
-          <th>Transaction Status</th>
-        </tr>
-      </tfoot> -->
+      
     </table>
   </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -46,9 +38,6 @@
         var amount_data = {
           accountNumber: sessionStorage.getItem("accountNumber"),
         };
-      // var amount_data = {
-      //   accountNumber: "180078903296"
-      // }
 
         $.ajax({
           type: "POST",
@@ -61,16 +50,7 @@
             console.log(d);
             console.log(Object.keys(d.data).length)
             console.log(d.data[0][4]);
-            //renderDataInTheTable(data)
-            // $("#example").DataTable({
-            //   ajax: JSON.stringify(data),
-            // });
-            // $(document).ready(function() {
-            //   $('#example').DataTable( {
-            //     "ajax": JSON.stringify(data)
-            //   })
-            // })
-            // function renderDataInTheTable(todos) {
+            
              const mytable = document.getElementById("html-data-table");
             for(i=0;i<Object.keys(d.data).length;i++)
             {
@@ -84,21 +64,7 @@
               mytable.appendChild(newRow);
             }
 
-            // todos.forEach(todo => {
-            //     let newRow = document.createElement("tr");
-            //     Object.values(todo).forEach((value) => {
-            //         let cell = document.createElement("td");
-            //         cell.innerText = value;
-            //         newRow.appendChild(cell);
-            //     })
-            //     mytable.appendChild(newRow);
-            // });
-            // for(i=0;i<data.length;i++)
-            // {
-            //   let newRow = document.createElement("tr");
-
-            // }
-       // }
+            
           },
 
           error: function (error) {

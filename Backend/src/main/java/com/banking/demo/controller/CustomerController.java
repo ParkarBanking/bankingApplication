@@ -91,10 +91,6 @@ public class CustomerController {
 	public ResponseEntity<Object> loginCustomer(@RequestBody CustomerEntity cust) {
 		
 		validation.loginCustomer(cust);
-//		passwordEncoder = new BCryptPasswordEncoder();
-//		String encodedPassword = passwordEncoder.encode(cust.getPassword());
-//		cust.setPassword(encodedPassword);
-//		System.out.print("password: "+encodedPassword);
 		
 		CustomerEntity fetchedEmail = customerService.findUserByEmails(cust.getEmailId());
 		

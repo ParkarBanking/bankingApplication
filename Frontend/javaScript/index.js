@@ -57,7 +57,7 @@ $(document).ready(function(){
   $("#middleName").val(sessionStorage.getItem("middleName"));
   $("#lastName").val(sessionStorage.getItem("lastName"));
   $("#address").val(sessionStorage.getItem("address"));
-  $("email1").val(sessionStorage.getItem("emailId"));
+  $("#email").val(sessionStorage.getItem("emailId"));
 })
 
 function register_cust() {
@@ -177,6 +177,7 @@ function update_password() {
     },
 
     error: function (error) {
+      console.log(error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
