@@ -59,12 +59,12 @@ public class TransactionController {
 		}
 	}
 		
-		@PostMapping("/transferMoney")
-		public ResponseEntity<Object> transferMoney(@RequestBody CustomRequestForMoneyTransfer moneyTransfer) {
+@PostMapping("/transferMoney")
+public ResponseEntity<Object> transferMoney(@RequestBody CustomRequestForMoneyTransfer moneyTransfer) {
 			
-			validations.transferMoney(moneyTransfer);
+	validations.transferMoney(moneyTransfer);
 			
-			AccountDetails fetchAccount = accountService.fetchAccountDetails(moneyTransfer.getAccountNumber());
+	AccountDetails fetchAccount = accountService.fetchAccountDetails(moneyTransfer.getAccountNumber());
 			AccountDetails fetchUserAccount = accountService.fetchAccountDetails(moneyTransfer.getUserAccountNumber());
 			CustomerEntity fetchedAcc = customerService.findUserByAccount(moneyTransfer.getAccountNumber());
 			

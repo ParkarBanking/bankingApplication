@@ -16,8 +16,6 @@ function login_cust() {
     dataType: "json",
 
     success: function (data) {
-      // console.log(JSON.stringify(data.status));
-      // alert(JSON.stringify(data.status));
       accountNumber = JSON.stringify(data.customerEntity.accountNumber).replace(/^"(.*)"$/,"$1");
       customerId = JSON.stringify(data.customerEntity.customerId)
       sessionStorage.setItem("accountNumber", accountNumber);
@@ -47,7 +45,6 @@ function login_cust() {
         text: error.responseJSON.message,
       });
       console.log(error);
-      // alert(`error: ${error.responseJSON.message}`);
     },
   });
 }
@@ -60,6 +57,7 @@ $(document).ready(function(){
   $("#middleName").val(sessionStorage.getItem("middleName"));
   $("#lastName").val(sessionStorage.getItem("lastName"));
   $("#address").val(sessionStorage.getItem("address"));
+  $("email1").val(sessionStorage.getItem("emailId"));
 })
 
 function register_cust() {
@@ -100,7 +98,6 @@ function register_cust() {
 
     error: function (error) {
       console.log(error);
-      // alert(`error: ${error.value}`);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -146,7 +143,6 @@ function update_profile() {
     },
 
     error: function (error) {
-      // alert(`error: ${error.value}`);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -181,7 +177,6 @@ function update_password() {
     },
 
     error: function (error) {
-      // alert(`error: ${error.value}`);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -192,7 +187,6 @@ function update_password() {
 }
 
 function send_otp() {
-  alert(sessionStorage);
   console.log(`sessionStorage: ${JSON.stringify(sessionStorage)}`);
   var sendOTP = {
     emailId: sessionStorage.getItem("emailId"),
@@ -208,7 +202,6 @@ function send_otp() {
     success: function (data) {},
 
     error: function (error) {
-      // alert(`error: ${error.value}`);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -239,7 +232,6 @@ function verify_otp() {
     },
 
     error: function (error) {
-      // alert(`error: ${error.value}`);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -257,7 +249,6 @@ $(document).ready(function () {
 });
 
 function add_money() {
-  // alert(sessionStorage.getItem("customerId"));
   var accountNumber = document.getElementById("accountNumber").value;
   var amount = document.getElementById("amount").value;
 
@@ -278,7 +269,6 @@ function add_money() {
     },
 
     error: function (error) {
-      // alert(`error: ${error.responseJSON}`);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -318,7 +308,6 @@ function transfer_money() {
 
     error: function (error) {
       console.log(error);
-      // alert(`error: ${error.value}`);
       Swal.fire({
         icon: "error",
         title: "Oops...",

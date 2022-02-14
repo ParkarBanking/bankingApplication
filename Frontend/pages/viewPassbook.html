@@ -9,21 +9,25 @@
       rel="stylesheet"
       href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"
     />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <title>Data Table</title>
   </head>
   <body>
-    <table id="example" class="display" style="width: 100%">
-      <thead>
-        <tr>
-          <th>Account Number</th>
-          <th>UserAccount Number</th>
-          <th>Amount</th>
-          <th>Time</th>
-          <th>Transaction Status</th>
+    <div class="data-table card w-75 mx-auto my-5">
+      
+    <h1 class="text-center">Transactions</h1>
+    <table id="html-data-table" class="table" style="width: 100%" >
+      <thead class="thead-dark">
+        <tr class="table-primary">
+          <th scope="col">Account Number</th>
+          <th scope="col">UserAccount Number</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Time</th>
+          <th scope="col">Transaction Status</th>
         </tr>
       </thead>
-      <tfoot>
+      <!-- <tfoot>
         <tr>
           <th>Account Number</th>
           <th>UserAccount Number</th>
@@ -31,16 +35,20 @@
           <th>Time</th>
           <th>Transaction Status</th>
         </tr>
-      </tfoot>
+      </tfoot> -->
     </table>
+  </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 
     <script>
       $(document).ready(function () {
         var amount_data = {
-          accountNumber: "180078903296",
+          accountNumber: sessionStorage.getItem("accountNumber"),
         };
+      // var amount_data = {
+      //   accountNumber: "180078903296"
+      // }
 
         $.ajax({
           type: "POST",
@@ -49,11 +57,48 @@
           data: JSON.stringify(amount_data),
           dataType: "json",
 
-          success: function (data) {
-            console.log(data);
-            $("#example").DataTable({
-              ajax: JSON.stringify(data),
-            });
+          success: function (d) {
+            console.log(d);
+            console.log(Object.keys(d.data).length)
+            console.log(d.data[0][4]);
+            //renderDataInTheTable(data)
+            // $("#example").DataTable({
+            //   ajax: JSON.stringify(data),
+            // });
+            // $(document).ready(function() {
+            //   $('#example').DataTable( {
+            //     "ajax": JSON.stringify(data)
+            //   })
+            // })
+            // function renderDataInTheTable(todos) {
+             const mytable = document.getElementById("html-data-table");
+            for(i=0;i<Object.keys(d.data).length;i++)
+            {
+              let newRow =document.createElement("tr");
+              for(j=0;j<5;j++)
+              {
+                let cell = document.createElement("td");
+                cell.innerText = d.data[i][j];
+                newRow.appendChild(cell);
+              }
+              mytable.appendChild(newRow);
+            }
+
+            // todos.forEach(todo => {
+            //     let newRow = document.createElement("tr");
+            //     Object.values(todo).forEach((value) => {
+            //         let cell = document.createElement("td");
+            //         cell.innerText = value;
+            //         newRow.appendChild(cell);
+            //     })
+            //     mytable.appendChild(newRow);
+            // });
+            // for(i=0;i<data.length;i++)
+            // {
+            //   let newRow = document.createElement("tr");
+
+            // }
+       // }
           },
 
           error: function (error) {
